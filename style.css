@@ -43,8 +43,8 @@ header {
 .navbar {
   display: flex;
   align-items: center;
-  flex-wrap: nowrap; /* Prevents wrapping of elements */
   justify-content: flex-end;
+  flex-wrap: nowrap; /* Prevents wrapping of elements */
   flex-shrink: 1; /* Ensure elements shrink to fit the available space */
 }
 
@@ -76,7 +76,8 @@ header {
 .social-icons {
   display: flex;
   gap: 15px;
-  margin-left: 20px;
+  margin-left: 10px; /* Slight margin to fit the icons */
+  flex-shrink: 0; /* Prevent shrinking of social icons */
 }
 
 .social-icons img {

@@ -15,7 +15,7 @@ header {
   display: flex;
   justify-content: space-between; /* Brand name on the left, navbar on the right */
   align-items: center;
-  padding: 20px 50px;
+  padding: 20px 30px; /* Adjusted padding for responsiveness */
   position: fixed;
   top: 0;
   left: 0;
@@ -39,10 +39,13 @@ header {
   color: gray;
 }
 
-/* Navigation Links + Social Icons on the Right */
+/* Navigation Links + Social Icons grouped together */
 .navbar {
   display: flex;
   align-items: center;
+  flex-wrap: nowrap; /* Prevents wrapping of elements */
+  justify-content: flex-end;
+  flex-shrink: 1; /* Ensure elements shrink to fit the available space */
 }
 
 .nav-links {

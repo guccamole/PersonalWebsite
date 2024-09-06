@@ -1,40 +1,41 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
+/* General Styles */
 body,
 html {
   height: 100%;
   background-color: white;
-  overflow: hidden;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Arial", sans-serif;
 }
 
-.shape {
-  position: absolute;
-  background-color: black;
-  pointer-events: none;
-  transform-origin: center;
-  transition: transform 0.2s ease;
+/* Content Section */
+.content {
+  text-align: center;
+  color: black;
 }
 
-.triangle {
-  width: 0;
-  height: 0;
-  border-left: 50px solid transparent;
-  border-right: 50px solid transparent;
-  border-bottom: 100px solid black;
+/* Name Style */
+.name {
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 20px;
 }
 
-.square {
-  width: 100px;
-  height: 100px;
+/* Education List Style */
+.education {
+  list-style-type: circle;
+  font-size: 24px;
+  margin-bottom: 20px;
+  padding-left: 0;
 }
 
-.hexagon {
-  width: 100px;
-  height: 100px;
-  background: black;
-  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+/* Profile Picture Style */
+.profile-pic {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid black;
 }

@@ -1,54 +1,52 @@
 let lastMouseX = 0;
 let lastMouseY = 0;
-let lastMoveTime = Date.now();
+let isMoving = false;
 
 document.addEventListener("mousemove", (e) => {
   const currentMouseX = e.clientX;
   const currentMouseY = e.clientY;
-  const currentTime = Date.now();
 
+  // Calculate how far the mouse has moved since the last event
   const dx = currentMouseX - lastMouseX;
   const dy = currentMouseY - lastMouseY;
-  const dt = currentTime - lastMoveTime;
 
-  const speed = (Math.sqrt(dx * dx + dy * dy) / dt) * 50; // Slower speed
+  // Only move the shapes if there is actual mouse movement
+  if (dx !== 0 || dy !== 0) {
+    isMoving = true;
 
-  // Get screen dimensions to prevent shapes from moving outside
-  const screenWidth = window.innerWidth;
-  const screenHeight = window.innerHeight;
+    const shapes = document.querySelectorAll(".shape");
 
-  // Update shapes positions and sizes based on speed
-  const shapes = document.querySelectorAll(".shape");
+    shapes.forEach((shape, index) => {
+      // Each shape moves at a different speed
+      const speedFactor = (index + 1) * 0.05;
+      const currentX = parseFloat(getComputedStyle(shape).left);
+      const currentY = parseFloat(getComputedStyle(shape).top);
 
-  shapes.forEach((shape, index) => {
-    const shapeSpeed = speed * (index + 1); // Make each shape move at a different speed
+      // Calculate new positions, ensuring gentle movement
+      let newX = currentX + dx * speedFactor;
+      let newY = currentY + dy * speedFactor;
 
-    // Get current position of the shape
-    const currentX = parseFloat(getComputedStyle(shape).left);
-    const currentY = parseFloat(getComputedStyle(shape).top);
+      // Get the shape's dimensions and the screen size
+      const screenWidth = window.innerWidth;
+      const screenHeight = window.innerHeight;
+      const shapeWidth = shape.offsetWidth;
+      const shapeHeight = shape.offsetHeight;
 
-    // Calculate new position
-    let newX = currentX + dx * shapeSpeed * 0.01;
-    let newY = currentY + dy * shapeSpeed * 0.01;
+      // Make sure the shapes stay within screen bounds
+      if (newX < 0) newX = 0;
+      if (newX + shapeWidth > screenWidth) newX = screenWidth - shapeWidth;
+      if (newY < 0) newY = 0;
+      if (newY + shapeHeight > screenHeight) newY = screenHeight - shapeHeight;
 
-    // Prevent shapes from going off screen by setting boundaries
-    const shapeWidth = shape.offsetWidth;
-    const shapeHeight = shape.offsetHeight;
+      // Apply the new positions to the shapes
+      shape.style.left = `${newX}px`;
+      shape.style.top = `${newY}px`;
+    });
 
-    if (newX < 0) newX = 0; // Don't go left outside the screen
-    if (newX + shapeWidth > screenWidth) newX = screenWidth - shapeWidth; // Don't go right outside the screen
-
-    if (newY < 0) newY = 0; // Don't go above the screen
-    if (newY + shapeHeight > screenHeight) newY = screenHeight - shapeHeight; // Don't go below the screen
-
-    // Apply movement and scaling (scale will be subtle now)
-    shape.style.left = `${newX}px`;
-    shape.style.top = `${newY}px`;
-    shape.style.transform = `scale(${1 + speed * 0.005})`; // Subtle scaling
-  });
-
-  // Update last mouse position and time
-  lastMouseX = currentMouseX;
-  lastMouseY = currentMouseY;
-  lastMoveTime = currentTime;
+    // Update the last mouse position
+    lastMouseX = currentMouseX;
+    lastMouseY = currentMouseY;
+  } else {
+    isMoving = false;
+  }
 });

@@ -18,6 +18,7 @@ html {
   position: absolute;
   background-color: black;
   pointer-events: none;
+  will-change: transform;
 }
 
 .triangle {
@@ -26,8 +27,7 @@ html {
   border-left: 50px solid transparent;
   border-right: 50px solid transparent;
   border-bottom: 100px solid black;
-  top: 20%;
-  left: 10%;
+  animation: floatTriangle 20s infinite ease-in-out;
 }
 
 .square {
@@ -35,6 +35,7 @@ html {
   height: 100px;
   top: 50%;
   left: 60%;
+  animation: floatSquare 25s infinite ease-in-out;
 }
 
 .hexagon {
@@ -44,4 +45,62 @@ html {
   clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
   top: 70%;
   left: 30%;
+  animation: floatHexagon 30s infinite ease-in-out;
+}
+
+/* Triangle Floating Animation */
+@keyframes floatTriangle {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(50px, -30px) rotate(45deg);
+  }
+  50% {
+    transform: translate(100px, 50px) rotate(90deg);
+  }
+  75% {
+    transform: translate(-50px, -20px) rotate(135deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(180deg);
+  }
+}
+
+/* Square Floating Animation */
+@keyframes floatSquare {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(-50px, 40px) rotate(45deg);
+  }
+  50% {
+    transform: translate(50px, -50px) rotate(90deg);
+  }
+  75% {
+    transform: translate(0px, 100px) rotate(135deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(180deg);
+  }
+}
+
+/* Hexagon Floating Animation */
+@keyframes floatHexagon {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(60px, -40px) rotate(60deg);
+  }
+  50% {
+    transform: translate(-80px, 30px) rotate(120deg);
+  }
+  75% {
+    transform: translate(50px, -50px) rotate(180deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(240deg);
+  }
 }

@@ -17,12 +17,17 @@ header {
 }
 
 /* Navigation */
+.navbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
 .navbar ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
   display: flex;
-  justify-content: flex-end;
   gap: 20px;
 }
 
@@ -45,6 +50,7 @@ header {
 /* Social Icons */
 .social-icons {
   display: inline-flex;
+  align-items: center; /* Center icons vertically */
   gap: 10px;
   margin-left: 20px;
 }

@@ -14,21 +14,12 @@ header {
   width: 100%;
   padding: 20px 50px;
   display: flex;
-  justify-content: space-between; /* Brand name on the left, navigation on the right */
+  justify-content: space-between; /* Brand on the left, navigation on the right */
   align-items: center;
   position: fixed;
   top: 0;
   background-color: white;
   z-index: 1000;
-}
-
-.navbar-container {
-  width: 100%;
-  display: flex;
-  justify-content: space-between; /* Keep brand name and nav items at opposite ends */
-  align-items: center;
-  flex-wrap: nowrap; /* Ensure items don't wrap */
-  overflow-x: hidden; /* Prevent horizontal overflow */
 }
 
 /* Brand Name on the Left */
@@ -46,12 +37,11 @@ header {
   color: gray;
 }
 
-/* Navigation Links on the Right */
+/* Navigation Links + Social Icons on the Right */
 .navbar {
   display: flex;
-  justify-content: flex-end; /* Ensure nav items are on the right */
   align-items: center;
-  flex-wrap: nowrap;
+  gap: 30px; /* Space between nav-links and social icons */
 }
 
 .nav-links {
@@ -82,7 +72,6 @@ header {
 .social-icons {
   display: flex;
   gap: 15px;
-  margin-left: 20px;
 }
 
 .social-icons img {

@@ -11,14 +11,22 @@ html {
 /* Header Styling */
 header {
   width: 100%;
-  padding: 20px 50px; /* Padding for some spacing */
+  padding: 20px 50px;
   display: flex;
-  justify-content: space-between; /* Ensure name on the left and links on the right */
+  justify-content: space-between; /* Ensures brand name on the left, navigation on the right */
   align-items: center;
   position: fixed;
   top: 0;
   background-color: white;
   z-index: 1000;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow */
+}
+
+.navbar-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between; /* This aligns the brand and nav links */
+  align-items: center;
 }
 
 /* Brand Name on the Left */
@@ -37,7 +45,12 @@ header {
 }
 
 /* Navigation Links on the Right */
-.navbar ul {
+.navbar {
+  display: flex;
+  align-items: center; /* Align the nav links and social icons properly */
+}
+
+.nav-links {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -45,11 +58,11 @@ header {
   gap: 20px;
 }
 
-.navbar ul li {
+.nav-links li {
   display: inline;
 }
 
-.navbar ul li a {
+.nav-links li a {
   text-decoration: none;
   color: black;
   font-weight: 600;
@@ -57,13 +70,13 @@ header {
   transition: color 0.3s ease;
 }
 
-.navbar ul li a:hover {
+.nav-links li a:hover {
   color: gray;
 }
 
 /* Social Icons */
 .social-icons {
-  display: inline-flex;
+  display: flex;
   gap: 15px;
   margin-left: 20px;
 }

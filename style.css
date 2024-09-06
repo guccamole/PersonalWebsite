@@ -1,98 +1,89 @@
-/* Importing the Quicksand font */
+/* General Styles */
 body,
 html {
-  font-family: "Quicksand", sans-serif;
   margin: 0;
   padding: 0;
-  height: 100%;
+  font-family: "Quicksand", sans-serif;
   background-color: white;
   color: black;
-  overflow-y: scroll;
 }
 
-/* Navigation Menu */
-.navbar {
+header {
   width: 100%;
-  background-color: white; /* No dark border, just white */
-  position: fixed;
+  position: absolute;
   top: 0;
-  left: 0;
-  padding: 10px 0;
-  z-index: 1000;
+  right: 0;
+  padding: 20px;
 }
 
+/* Navigation */
 .navbar ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  text-align: left; /* Align menu items to the left */
-  padding-left: 50px; /* Add padding to the left for spacing */
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
 }
 
 .navbar ul li {
   display: inline;
-  margin-right: 20px;
 }
 
 .navbar ul li a {
-  color: black; /* Menu items are black */
   text-decoration: none;
-  font-weight: bold;
-  font-size: 18px;
+  color: black;
+  font-weight: 600;
+  font-size: 16px;
+  transition: color 0.3s ease;
 }
 
 .navbar ul li a:hover {
-  text-decoration: underline;
+  color: gray;
 }
 
-/* Active/Clicked Link Style */
-.navbar ul li a:active {
-  color: black; /* Links turn black when clicked */
-}
-
-/* Main Content Container */
-.container {
-  margin-left: 50px;
-  margin-right: 50px;
-  padding-top: 100px; /* Space under the fixed navbar */
-}
-
-/* Name Style */
-.name {
-  font-size: 48px;
-  font-weight: 600;
-  margin-bottom: 10px;
-}
-
-/* Location Style */
-.location {
-  font-size: 20px;
-  margin-bottom: 30px;
-}
-
-/* About Me Section */
-section h2 {
-  font-size: 32px;
-  font-weight: 600;
-  margin-bottom: 20px;
-}
-
-section ul {
-  list-style-type: disc;
+/* Social Icons */
+.social-icons {
+  display: inline-flex;
+  gap: 10px;
   margin-left: 20px;
 }
 
-section ul li {
-  font-size: 18px;
-  line-height: 1.8;
-  margin-bottom: 10px;
+.social-icons img {
+  width: 24px;
+  height: 24px;
+  transition: opacity 0.3s ease;
 }
 
-/* Profile Picture */
-.profile-pic {
-  width: 150px;
-  height: 150px;
+.social-icons img:hover {
+  opacity: 0.7;
+}
+
+/* Main Content */
+.main-content {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 150px 50px;
+}
+
+.profile-pic img {
   border-radius: 50%;
+  width: 120px;
+  height: 120px;
   object-fit: cover;
-  margin-bottom: 30px;
+  margin-right: 30px;
+}
+
+.bio h1 {
+  font-size: 36px;
+  font-weight: 600;
+  color: black;
+  margin: 0;
+}
+
+.bio p {
+  font-size: 18px;
+  color: #555; /* Soft gray for bio text */
+  line-height: 1.5;
 }

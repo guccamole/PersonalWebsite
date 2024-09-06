@@ -2,22 +2,22 @@ let lastMouseX = 0;
 let lastMouseY = 0;
 let progress = 0;
 
-// Paths for each shape - these are fixed coordinates the shapes will follow
+// Paths for each shape - these start offscreen and move toward the center
 const paths = {
   triangle: [
-    { x: 0, y: window.innerHeight }, // Bottom-left start
-    { x: window.innerWidth / 2, y: window.innerHeight / 2 }, // Center
+    { x: -200, y: window.innerHeight + 200 }, // Start bottom-left offscreen
+    { x: window.innerWidth / 3, y: window.innerHeight / 2 }, // Center-left
     { x: window.innerWidth, y: 0 }, // Top-right
   ],
   square: [
-    { x: window.innerWidth, y: 0 }, // Top-right start
-    { x: window.innerWidth / 2, y: window.innerHeight / 2 }, // Center
+    { x: window.innerWidth + 200, y: -200 }, // Start top-right offscreen
+    { x: window.innerWidth / 2, y: window.innerHeight / 3 }, // Center-top
     { x: 0, y: window.innerHeight }, // Bottom-left
   ],
   hexagon: [
-    { x: 0, y: 0 }, // Top-left start
+    { x: -200, y: -200 }, // Start top-left offscreen
     { x: window.innerWidth / 2, y: window.innerHeight / 2 }, // Center
-    { x: window.innerWidth, y: window.innerHeight }, // Bottom-right
+    { x: window.innerWidth + 200, y: window.innerHeight + 200 }, // Bottom-right offscreen
   ],
 };
 

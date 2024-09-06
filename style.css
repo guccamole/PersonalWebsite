@@ -25,15 +25,11 @@ html {
   border-left: 50px solid transparent;
   border-right: 50px solid transparent;
   border-bottom: 100px solid black;
-  bottom: 0;
-  left: 0;
 }
 
 .square {
   width: 100px;
   height: 100px;
-  top: 0;
-  right: 0;
 }
 
 .hexagon {
@@ -41,6 +37,4 @@ html {
   height: 100px;
   background: black;
   clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-  top: 0;
-  left: 0;
 }

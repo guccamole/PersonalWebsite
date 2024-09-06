@@ -1,52 +1,79 @@
 let lastMouseX = 0;
 let lastMouseY = 0;
-let isMoving = false;
+let progress = 0; // Represents the progress along the path (0 to 100%)
+
+// Paths for each shape (these can be adjusted as needed)
+const paths = {
+  triangle: [
+    { x: 10, y: 20 }, // Start
+    { x: 100, y: 150 }, // First point
+    { x: 200, y: 50 }, // Second point
+    { x: 300, y: 300 }, // End
+  ],
+  square: [
+    { x: 200, y: 300 },
+    { x: 350, y: 200 },
+    { x: 450, y: 50 },
+    { x: 600, y: 300 },
+  ],
+  hexagon: [
+    { x: 50, y: 400 },
+    { x: 150, y: 250 },
+    { x: 400, y: 100 },
+    { x: 500, y: 450 },
+  ],
+};
+
+// Function to interpolate between two points
+function lerp(start, end, t) {
+  return start + (end - start) * t;
+}
+
+// Function to move each shape along its path
+function moveShapeAlongPath(shape, path, progress) {
+  // Calculate which two points the shape is between
+  const segmentCount = path.length - 1;
+  const segmentProgress = progress * segmentCount; // Determine which segment we're in
+  const segmentIndex = Math.floor(segmentProgress); // Get the segment index
+  const localProgress = segmentProgress - segmentIndex; // Progress within the current segment
+
+  const start = path[segmentIndex];
+  const end = path[segmentIndex + 1];
+
+  const newX = lerp(start.x, end.x, localProgress);
+  const newY = lerp(start.y, end.y, localProgress);
+
+  shape.style.transform = `translate(${newX}px, ${newY}px)`;
+}
 
 document.addEventListener("mousemove", (e) => {
   const currentMouseX = e.clientX;
   const currentMouseY = e.clientY;
 
-  // Calculate how far the mouse has moved since the last event
+  // Calculate mouse movement distance
   const dx = currentMouseX - lastMouseX;
   const dy = currentMouseY - lastMouseY;
+  const distance = Math.sqrt(dx * dx + dy * dy);
 
-  // Only move the shapes if there is actual mouse movement
-  if (dx !== 0 || dy !== 0) {
-    isMoving = true;
+  // Increase progress based on the distance moved
+  progress += distance * 0.001; // Adjust speed by changing the multiplier
+  if (progress > 1) progress = 1; // Keep progress within bounds
+  if (progress < 0) progress = 0;
 
-    const shapes = document.querySelectorAll(".shape");
+  // Move shapes along their respective paths
+  moveShapeAlongPath(
+    document.querySelector(".triangle"),
+    paths.triangle,
+    progress
+  );
+  moveShapeAlongPath(document.querySelector(".square"), paths.square, progress);
+  moveShapeAlongPath(
+    document.querySelector(".hexagon"),
+    paths.hexagon,
+    progress
+  );
 
-    shapes.forEach((shape, index) => {
-      // Each shape moves at a different speed
-      const speedFactor = (index + 1) * 0.05;
-      const currentX = parseFloat(getComputedStyle(shape).left);
-      const currentY = parseFloat(getComputedStyle(shape).top);
-
-      // Calculate new positions, ensuring gentle movement
-      let newX = currentX + dx * speedFactor;
-      let newY = currentY + dy * speedFactor;
-
-      // Get the shape's dimensions and the screen size
-      const screenWidth = window.innerWidth;
-      const screenHeight = window.innerHeight;
-      const shapeWidth = shape.offsetWidth;
-      const shapeHeight = shape.offsetHeight;
-
-      // Make sure the shapes stay within screen bounds
-      if (newX < 0) newX = 0;
-      if (newX + shapeWidth > screenWidth) newX = screenWidth - shapeWidth;
-      if (newY < 0) newY = 0;
-      if (newY + shapeHeight > screenHeight) newY = screenHeight - shapeHeight;
-
-      // Apply the new positions to the shapes
-      shape.style.left = `${newX}px`;
-      shape.style.top = `${newY}px`;
-    });
-
-    // Update the last mouse position
-    lastMouseX = currentMouseX;
-    lastMouseY = currentMouseY;
-  } else {
-    isMoving = false;
-  }
+  // Update last mouse position
+  lastMouseX = currentMouseX;
+  lastMouseY = currentMouseY;
 });

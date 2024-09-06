@@ -1,34 +1,38 @@
 let lastMouseX = 0;
 let lastMouseY = 0;
-let moving = false;
+let lastMoveTime = Date.now();
 
 document.addEventListener("mousemove", (e) => {
+  const currentMouseX = e.clientX;
+  const currentMouseY = e.clientY;
+  const currentTime = Date.now();
+
+  const dx = currentMouseX - lastMouseX;
+  const dy = currentMouseY - lastMouseY;
+  const dt = currentTime - lastMoveTime;
+
+  const speed = (Math.sqrt(dx * dx + dy * dy) / dt) * 100; // Speed based on mouse movement
+
+  // Update shapes positions and sizes based on speed
   const shapes = document.querySelectorAll(".shape");
-  const mouseX = e.clientX;
-  const mouseY = e.clientY;
 
-  // Detect if the cursor is moving
-  if (mouseX !== lastMouseX || mouseY !== lastMouseY) {
-    moving = true;
-    shapes.forEach((shape) => {
-      const speed = shape.getAttribute("data-speed") || 10;
-      const x = (window.innerWidth - mouseX * speed) / 100;
-      const y = (window.innerHeight - mouseY * speed) / 100;
-      const scale = 1 + (mouseX / window.innerWidth) * 0.2;
-      shape.style.transform = `translate(${x}px, ${y}px) scale(${scale})`;
-    });
+  shapes.forEach((shape, index) => {
+    const shapeSpeed = speed * (index + 1); // Make each shape move at a different speed
 
-    // Store the last mouse position
-    lastMouseX = mouseX;
-    lastMouseY = mouseY;
-  }
-});
+    // Calculate new positions
+    const currentX = parseFloat(getComputedStyle(shape).left);
+    const currentY = parseFloat(getComputedStyle(shape).top);
+    const newX = currentX + dx * shapeSpeed * 0.05;
+    const newY = currentY + dy * shapeSpeed * 0.05;
 
-// Stop moving the shapes when the mouse stops moving
-document.addEventListener("mouseleave", () => {
-  moving = false;
-  const shapes = document.querySelectorAll(".shape");
-  shapes.forEach((shape) => {
-    shape.style.transform = `translate(0, 0) scale(1)`; // Reset to the default position and scale
+    // Apply movement and scaling
+    shape.style.left = `${newX}px`;
+    shape.style.top = `${newY}px`;
+    shape.style.transform = `scale(${1 + speed * 0.001})`; // Scale the shape slightly
   });
+
+  // Update last mouse position and time
+  lastMouseX = currentMouseX;
+  lastMouseY = currentMouseY;
+  lastMoveTime = currentTime;
 });

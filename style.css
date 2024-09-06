@@ -7,51 +7,41 @@
 body,
 html {
   height: 100%;
+  background-color: white;
+  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: white;
-  overflow: hidden;
-  font-family: Arial, sans-serif;
 }
 
 .shape {
   position: absolute;
-  background-color: rgba(0, 150, 255, 0.2);
-  border-radius: 50%;
+  background-color: black;
   pointer-events: none;
-  animation: float 6s infinite ease-in-out;
 }
 
-.shape1 {
-  width: 150px;
-  height: 150px;
+.triangle {
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 100px solid black;
   top: 20%;
   left: 10%;
 }
 
-.shape2 {
-  width: 200px;
-  height: 200px;
-  top: 50%;
-  left: 70%;
-}
-
-.shape3 {
+.square {
   width: 100px;
   height: 100px;
-  top: 70%;
-  left: 40%;
+  top: 50%;
+  left: 60%;
 }
 
-@keyframes float {
-  0% {
-    transform: translate(0, 0);
-  }
-  50% {
-    transform: translate(30px, -20px);
-  }
-  100% {
-    transform: translate(0, 0);
-  }
+.hexagon {
+  width: 100px;
+  height: 100px;
+  background: black;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  top: 70%;
+  left: 30%;
 }

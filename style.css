@@ -8,18 +8,18 @@ html {
   color: black;
 }
 
+/* Header and Navbar */
 header {
   width: 100%;
   position: absolute;
   top: 0;
-  right: 0;
   padding: 20px;
   display: flex;
-  justify-content: space-between; /* Ensure name and links are on opposite sides */
+  justify-content: space-between; /* Space between name and menu bar */
   align-items: center;
 }
 
-/* Name in the top left corner */
+/* Name on the left */
 .brand-name {
   margin-left: 20px;
 }
@@ -35,14 +35,13 @@ header {
   color: gray;
 }
 
-/* Navigation */
-.navbar {
+/* Menu Bar on the right */
+.menu-bar {
   display: flex;
-  justify-content: flex-end;
   align-items: center;
 }
 
-.navbar ul {
+.menu-bar ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -50,11 +49,11 @@ header {
   gap: 20px;
 }
 
-.navbar ul li {
+.menu-bar ul li {
   display: inline;
 }
 
-.navbar ul li a {
+.menu-bar ul li a {
   text-decoration: none;
   color: black;
   font-weight: 600;
@@ -62,7 +61,7 @@ header {
   transition: color 0.3s ease;
 }
 
-.navbar ul li a:hover {
+.menu-bar ul li a:hover {
   color: gray;
 }
 

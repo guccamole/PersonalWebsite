@@ -8,40 +8,36 @@ html {
   color: black;
 }
 
-/* Header and Navbar */
+/* Header Styling */
 header {
   width: 100%;
-  position: absolute;
-  top: 0;
-  padding: 20px;
+  padding: 20px 50px; /* Padding for some spacing */
   display: flex;
-  justify-content: space-between; /* Space between name and menu bar */
+  justify-content: space-between; /* Ensure name on the left and links on the right */
   align-items: center;
+  position: fixed;
+  top: 0;
+  background-color: white;
+  z-index: 1000;
 }
 
-/* Name on the left */
+/* Brand Name on the Left */
 .brand-name {
-  margin-left: 20px;
+  font-size: 24px;
+  font-weight: 600;
 }
 
 .brand-name a {
-  font-weight: 600;
-  font-size: 24px;
-  color: black;
   text-decoration: none;
+  color: black;
 }
 
 .brand-name a:hover {
   color: gray;
 }
 
-/* Menu Bar on the right */
-.menu-bar {
-  display: flex;
-  align-items: center;
-}
-
-.menu-bar ul {
+/* Navigation Links on the Right */
+.navbar ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -49,11 +45,11 @@ header {
   gap: 20px;
 }
 
-.menu-bar ul li {
+.navbar ul li {
   display: inline;
 }
 
-.menu-bar ul li a {
+.navbar ul li a {
   text-decoration: none;
   color: black;
   font-weight: 600;
@@ -61,15 +57,14 @@ header {
   transition: color 0.3s ease;
 }
 
-.menu-bar ul li a:hover {
+.navbar ul li a:hover {
   color: gray;
 }
 
 /* Social Icons */
 .social-icons {
   display: inline-flex;
-  align-items: center; /* Center icons vertically */
-  gap: 10px;
+  gap: 15px;
   margin-left: 20px;
 }
 

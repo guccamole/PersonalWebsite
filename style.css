@@ -1,19 +1,19 @@
-/* Importing a soft, clean font */
+/* Importing the Quicksand font */
 body,
 html {
-  font-family: "Karla", sans-serif;
+  font-family: "Quicksand", sans-serif;
   margin: 0;
   padding: 0;
   height: 100%;
   background-color: white;
   color: black;
-  overflow-y: scroll; /* Allows scrolling */
+  overflow-y: scroll;
 }
 
 /* Navigation Menu */
 .navbar {
   width: 100%;
-  background-color: #333;
+  background-color: white; /* No dark border, just white */
   position: fixed;
   top: 0;
   left: 0;
@@ -25,7 +25,8 @@ html {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  text-align: center;
+  text-align: left; /* Align menu items to the left */
+  padding-left: 50px; /* Add padding to the left for spacing */
 }
 
 .navbar ul li {
@@ -34,7 +35,7 @@ html {
 }
 
 .navbar ul li a {
-  color: white;
+  color: black; /* Menu items are black */
   text-decoration: none;
   font-weight: bold;
   font-size: 18px;
@@ -44,12 +45,16 @@ html {
   text-decoration: underline;
 }
 
+/* Active/Clicked Link Style */
+.navbar ul li a:active {
+  color: black; /* Links turn black when clicked */
+}
+
 /* Main Content Container */
 .container {
   margin-left: 50px;
   margin-right: 50px;
-  padding-top: 100px; /* Spacing below the menu */
-  padding-bottom: 50px;
+  padding-top: 100px; /* Space under the fixed navbar */
 }
 
 /* Name Style */
@@ -83,23 +88,11 @@ section ul li {
   margin-bottom: 10px;
 }
 
-/* Profile Picture Style */
+/* Profile Picture */
 .profile-pic {
   width: 150px;
   height: 150px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid black;
-  margin-top: 20px;
-  margin-bottom: 50px;
-}
-
-/* Styling for sections (Music, Poetry, Projects, Articles) */
-section {
-  margin-bottom: 60px;
-}
-
-section p {
-  font-size: 18px;
-  line-height: 1.6;
+  margin-bottom: 30px;
 }

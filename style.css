@@ -14,7 +14,7 @@ header {
   width: 100%;
   padding: 20px 50px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* Brand name on the left, navigation on the right */
   align-items: center;
   position: fixed;
   top: 0;
@@ -25,8 +25,10 @@ header {
 .navbar-container {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* Keep brand name and nav items at opposite ends */
   align-items: center;
+  flex-wrap: nowrap; /* Ensure items don't wrap */
+  overflow-x: hidden; /* Prevent horizontal overflow */
 }
 
 /* Brand Name on the Left */
@@ -47,7 +49,9 @@ header {
 /* Navigation Links on the Right */
 .navbar {
   display: flex;
-  align-items: center; /* Align the nav links and social icons properly */
+  justify-content: flex-end; /* Ensure nav items are on the right */
+  align-items: center;
+  flex-wrap: nowrap;
 }
 
 .nav-links {
@@ -59,7 +63,7 @@ header {
 }
 
 .nav-links li {
-  display: inline;
+  display: inline-block;
 }
 
 .nav-links li a {
@@ -78,6 +82,7 @@ header {
 .social-icons {
   display: flex;
   gap: 15px;
+  margin-left: 20px;
 }
 
 .social-icons img {
@@ -121,5 +126,5 @@ header {
 
 /* Remove any unwanted lines or shadows */
 header {
-  box-shadow: none; /* Removes the line separating the navbar from the rest of the page */
+  box-shadow: none; /* Remove the line under the header */
 }

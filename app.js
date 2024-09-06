@@ -1,26 +1,23 @@
 let lastMouseX = 0;
 let lastMouseY = 0;
-let progress = 0; // Represents the progress along the path (0 to 100%)
+let progress = 0;
 
-// Paths for each shape (these can be adjusted as needed)
+// Paths for each shape - these are fixed coordinates the shapes will follow
 const paths = {
   triangle: [
-    { x: 10, y: 20 }, // Start
-    { x: 100, y: 150 }, // First point
-    { x: 200, y: 50 }, // Second point
-    { x: 300, y: 300 }, // End
+    { x: 0, y: window.innerHeight }, // Bottom-left start
+    { x: window.innerWidth / 2, y: window.innerHeight / 2 }, // Center
+    { x: window.innerWidth, y: 0 }, // Top-right
   ],
   square: [
-    { x: 200, y: 300 },
-    { x: 350, y: 200 },
-    { x: 450, y: 50 },
-    { x: 600, y: 300 },
+    { x: window.innerWidth, y: 0 }, // Top-right start
+    { x: window.innerWidth / 2, y: window.innerHeight / 2 }, // Center
+    { x: 0, y: window.innerHeight }, // Bottom-left
   ],
   hexagon: [
-    { x: 50, y: 400 },
-    { x: 150, y: 250 },
-    { x: 400, y: 100 },
-    { x: 500, y: 450 },
+    { x: 0, y: 0 }, // Top-left start
+    { x: window.innerWidth / 2, y: window.innerHeight / 2 }, // Center
+    { x: window.innerWidth, y: window.innerHeight }, // Bottom-right
   ],
 };
 
@@ -31,7 +28,6 @@ function lerp(start, end, t) {
 
 // Function to move each shape along its path
 function moveShapeAlongPath(shape, path, progress) {
-  // Calculate which two points the shape is between
   const segmentCount = path.length - 1;
   const segmentProgress = progress * segmentCount; // Determine which segment we're in
   const segmentIndex = Math.floor(segmentProgress); // Get the segment index
@@ -43,22 +39,22 @@ function moveShapeAlongPath(shape, path, progress) {
   const newX = lerp(start.x, end.x, localProgress);
   const newY = lerp(start.y, end.y, localProgress);
 
-  shape.style.transform = `translate(${newX}px, ${newY}px)`;
+  shape.style.transform = `translate(${newX}px, ${newY}px) scale(${
+    1 + localProgress * 0.2
+  })`;
 }
 
 document.addEventListener("mousemove", (e) => {
   const currentMouseX = e.clientX;
   const currentMouseY = e.clientY;
 
-  // Calculate mouse movement distance
   const dx = currentMouseX - lastMouseX;
   const dy = currentMouseY - lastMouseY;
   const distance = Math.sqrt(dx * dx + dy * dy);
 
   // Increase progress based on the distance moved
   progress += distance * 0.001; // Adjust speed by changing the multiplier
-  if (progress > 1) progress = 1; // Keep progress within bounds
-  if (progress < 0) progress = 0;
+  if (progress > 1) progress = 0; // Loop the movement
 
   // Move shapes along their respective paths
   moveShapeAlongPath(

@@ -13,18 +13,17 @@ html {
 header {
   width: 100%;
   display: flex;
-  justify-content: space-between; /* Brand name on the left, navbar on the right */
+  justify-content: space-between; /* Brand on left, navbar on right */
   align-items: center;
-  padding: 20px 30px; /* Adjusted padding for responsiveness */
+  padding: 20px 30px; /* Adjust padding to prevent overflow */
   position: fixed;
   top: 0;
-  left: 0;
   background-color: white;
   z-index: 1000;
   box-shadow: none; /* No line under header */
 }
 
-/* Brand Name on the Left */
+/* Brand Name Styling */
 .brand-name {
   font-size: 24px;
   font-weight: 600;
@@ -39,28 +38,21 @@ header {
   color: gray;
 }
 
-/* Navigation Links + Social Icons grouped together */
+/* Navbar and Flexbox Configuration */
 .navbar {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  flex-wrap: nowrap; /* Prevents wrapping of elements */
-  min-width: 0; /* Ensure the navbar shrinks properly if space is limited */
+  width: 100%; /* Ensure the navbar spans the full available width */
+  flex-wrap: nowrap; /* Prevent elements from wrapping */
 }
 
-/* Navigation Links */
 .nav-links {
   list-style-type: none;
-  margin: 0;
-  padding: 0;
   display: flex;
   gap: 20px;
-  flex-grow: 1; /* Allow the nav links to take up available space */
-  min-width: 0; /* Allow the container to shrink */
-}
-
-.nav-links li {
-  display: inline-block;
+  flex-grow: 1; /* Allow nav-links to take up available space */
+  min-width: 0; /* Prevent overflow by allowing them to shrink */
 }
 
 .nav-links li a {
@@ -68,19 +60,17 @@ header {
   color: black;
   font-weight: 600;
   font-size: 16px;
-  transition: color 0.3s ease;
 }
 
 .nav-links li a:hover {
   color: gray;
 }
 
-/* Social Icons */
+/* Social Icons Styling */
 .social-icons {
   display: flex;
-  gap: 15px;
-  margin-left: 10px;
-  flex-shrink: 0; /* Ensure social icons don't shrink */
+  gap: 10px; /* Adjust gap between icons */
+  flex-shrink: 0; /* Prevent icons from shrinking */
 }
 
 .social-icons img {

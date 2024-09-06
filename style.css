@@ -21,7 +21,6 @@ html {
   border-radius: 50%;
   pointer-events: none;
   animation: float 6s infinite ease-in-out;
-  will-change: transform;
 }
 
 .shape1 {
@@ -47,12 +46,12 @@ html {
 
 @keyframes float {
   0% {
-    transform: translate(0, 0) scale(1);
+    transform: translate(0, 0);
   }
   50% {
-    transform: translate(30px, -20px) scale(1.2);
+    transform: translate(30px, -20px);
   }
   100% {
-    transform: translate(0, 0) scale(1);
+    transform: translate(0, 0);
   }
 }

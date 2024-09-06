@@ -9,25 +9,19 @@ html {
   overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
-/* Container to constrain the header width */
-.container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between; /* Space between the brand name and navbar */
-  align-items: center;
-  padding: 20px;
-}
-
 /* Header Styling */
 header {
   width: 100%;
+  display: flex;
+  justify-content: space-between; /* Brand name on the left, navbar on the right */
+  align-items: center;
+  padding: 20px 50px;
   position: fixed;
   top: 0;
+  left: 0;
   background-color: white;
   z-index: 1000;
-  box-shadow: none;
+  box-shadow: none; /* No line under header */
 }
 
 /* Brand Name on the Left */

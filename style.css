@@ -97,3 +97,14 @@ html {
   height: auto;
   border-radius: 10px;
 }
+
+/* Custom link style */
+.custom-link {
+  color: black; /* Make the link text black */
+  text-decoration: none; /* Remove underline */
+}
+
+.custom-link:hover {
+  color: gray; /* Optional: Change color on hover */
+  text-decoration: underline; /* Optional: Add underline on hover */
+}

@@ -1,90 +1,23 @@
-/* General Styles */
-body,
-html {
-  margin: 0;
-  padding: 0;
-  font-family: "Quicksand", sans-serif;
-  background-color: white;
-  color: black;
-  overflow-x: hidden; /* Prevent horizontal scrolling */
-}
-
-/* Header Styling */
-header {
-  width: 100%;
-  display: flex;
-  justify-content: space-between; /* Brand name on the left, navbar on the right */
-  align-items: center;
-  padding: 20px 30px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-color: white;
-  z-index: 1000;
-  box-shadow: none; /* No line under header */
-}
-
-/* Brand Name on the Left */
-.brand-name {
-  font-size: 24px;
-  font-weight: 600;
-}
-
-.brand-name a {
-  text-decoration: none;
-  color: black;
-}
-
-.brand-name a:hover {
-  color: gray;
-}
-
-/* Navigation Links + Social Icons */
 .navbar {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Align nav links and social icons properly */
-  flex-wrap: nowrap; /* Prevents wrapping */
-  gap: 20px;
+  justify-content: flex-end;
+  flex-wrap: nowrap; /* Prevent wrapping */
+  min-width: 0; /* Allow navbar to shrink properly */
 }
 
-/* Navigation Links */
 .nav-links {
   list-style-type: none;
   margin: 0;
   padding: 0;
   display: flex;
   gap: 20px;
+  flex-grow: 1; /* Allow the nav links to take up available space */
 }
 
-.nav-links li {
-  display: inline-block;
-}
-
-.nav-links li a {
-  text-decoration: none;
-  color: black;
-  font-weight: 600;
-  font-size: 16px;
-  transition: color 0.3s ease;
-}
-
-.nav-links li a:hover {
-  color: gray;
-}
-
-/* Social Icons */
 .social-icons {
   display: flex;
   gap: 15px;
-}
-
-.social-icons img {
-  width: 24px;
-  height: 24px;
-  transition: opacity 0.3s ease;
-}
-
-.social-icons img:hover {
-  opacity: 0.7;
+  margin-left: 10px;
+  flex-shrink: 0; /* Prevent social icons from shrinking */
 }

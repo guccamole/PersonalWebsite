@@ -8,54 +8,40 @@ html {
   color: black;
 }
 
+/* Fix header to the top without messing layout */
 header {
   width: 100%;
   position: fixed;
   top: 0;
   left: 0;
-  padding: 20px;
+  background-color: white;
+  padding: 10px 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: white; /* Optional background to make it stand out */
-  z-index: 1000;
 }
 
-/* Brand */
-.brand {
-  margin-right: auto;
-}
-
+/* Brand - Always aligned on the left */
 .brand a {
   text-decoration: none;
   color: black;
   font-weight: 600;
   font-size: 20px;
-  transition: color 0.3s ease;
 }
 
 .brand a:hover {
   color: gray;
 }
 
-/* Navigation */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  align-items: center;
-}
-
+/* Navbar Styles */
 .navbar ul {
   list-style-type: none;
-  margin: 0;
-  padding: 0;
   display: flex;
   gap: 20px;
-}
-
-.navbar ul li {
-  display: inline;
+  margin: 0;
+  padding: 0;
 }
 
 .navbar ul li a {
@@ -63,7 +49,6 @@ header {
   color: black;
   font-weight: 600;
   font-size: 16px;
-  transition: color 0.3s ease;
 }
 
 .navbar ul li a:hover {
@@ -72,20 +57,13 @@ header {
 
 /* Social Icons */
 .social-icons {
-  display: inline-flex;
-  align-items: center; /* Center icons vertically */
+  display: flex;
   gap: 10px;
-  margin-left: 20px;
 }
 
 .social-icons img {
   width: 24px;
   height: 24px;
-  transition: opacity 0.3s ease;
-}
-
-.social-icons img:hover {
-  opacity: 0.7;
 }
 
 /* Main Content */
@@ -113,6 +91,6 @@ header {
 
 .bio p {
   font-size: 18px;
-  color: #555; /* Soft gray for bio text */
+  color: #555;
   line-height: 1.5;
 }

@@ -10,13 +10,15 @@ html {
 
 header {
   width: 100%;
-  position: absolute;
+  position: fixed;
   top: 0;
-  right: 0;
+  left: 0;
   padding: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: white; /* Optional background to make it stand out */
+  z-index: 1000;
 }
 
 /* Brand */
@@ -39,9 +41,9 @@ header {
 /* Navigation */
 .navbar {
   display: flex;
-  justify-content: flex-end;
-  align-items: center;
+  justify-content: space-between;
   width: 100%;
+  align-items: center;
 }
 
 .navbar ul {

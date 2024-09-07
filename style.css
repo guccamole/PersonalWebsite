@@ -8,22 +8,17 @@ html {
   color: black;
 }
 
-/* Fix header to the top without messing layout */
-header {
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-color: white;
-  padding: 10px 20px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
+/* Navbar Setup */
+.navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 20px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-/* Brand - Always aligned on the left */
+/* Brand on the left */
 .brand a {
   text-decoration: none;
   color: black;
@@ -35,7 +30,7 @@ header {
   color: gray;
 }
 
-/* Navbar Styles */
+/* Navigation Links */
 .navbar ul {
   list-style-type: none;
   display: flex;

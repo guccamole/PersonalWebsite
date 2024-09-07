@@ -3,7 +3,7 @@ body,
 html {
   margin: 0;
   padding: 0;
-  font-family: "Quicksand", sans-serif;
+  font-family: "Quicksand", sans-serif; /* Ensure font remains */
   background-color: white;
   color: black;
 }
@@ -67,8 +67,19 @@ html {
   height: 24px;
 }
 
-/* Remove specific styles for the picture and name since they are no longer needed */
-/* Main Content remains, but it will be used later */
+/* Main Content */
 .main-content {
-  padding: 150px 50px; /* Placeholder padding to keep structure */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 150px 50px;
 }
+
+/* Bio Section (Text remains) */
+.bio p {
+  font-size: 18px;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* Removed .profile-pic styling since image is no longer needed */

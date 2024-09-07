@@ -67,31 +67,8 @@ html {
   height: 24px;
 }
 
-/* Main Content */
+/* Remove specific styles for the picture and name since they are no longer needed */
+/* Main Content remains, but it will be used later */
 .main-content {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 150px 50px;
-}
-
-.profile-pic img {
-  border-radius: 50%;
-  width: 120px;
-  height: 120px;
-  object-fit: cover;
-  margin-right: 30px;
-}
-
-.bio h1 {
-  font-size: 36px;
-  font-weight: 600;
-  color: black;
-  margin: 0;
-}
-
-.bio p {
-  font-size: 18px;
-  color: #555;
-  line-height: 1.5;
+  padding: 150px 50px; /* Placeholder padding to keep structure */
 }

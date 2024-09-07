@@ -67,28 +67,26 @@ html {
   height: 24px;
 }
 
-/* Main Content (for index.html, about.html, music.html) */
+/* Main Content (index.html and about.html) */
 .main-content,
-.about-content,
-.music-content {
+.about-content {
   padding: 50px 20px; /* Add left buffer similar to the navbar */
   box-sizing: border-box;
   text-align: left; /* Ensure text is left aligned */
 }
 
-/* Music Section */
-.music-item {
-  margin-bottom: 40px;
-}
-
-.music-item h3 {
-  font-size: 22px;
-  font-weight: 600;
-  margin-bottom: 10px;
-}
-
-.music-item p {
+.bio p,
+.about-text p {
   font-size: 18px;
   color: #555;
-  line-height: 1.6;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Profile Picture on the about page */
+.about-pic img {
+  width: 100%;
+  max-width: 250px; /* Control size of the image */
+  height: auto;
+  border-radius: 10px;
 }

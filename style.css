@@ -67,54 +67,17 @@ html {
   height: 24px;
 }
 
-/* About Section */
-.about-section {
-  padding: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  text-align: center;
+/* Main Content (index.html) */
+.main-content {
+  padding: 150px 50px; /* Add padding for spacing */
+  box-sizing: border-box; /* Ensure padding doesn’t affect width */
 }
 
-/* About Content */
-.about-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 30px;
-  max-width: 900px;
-  width: 100%;
-}
-
-/* About Text on the left */
-.about-text {
-  flex: 1;
-}
-
-/* Profile Picture on the right */
-.about-pic {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-}
-
-.about-pic img {
-  width: 100%; /* Controls image width (adjust as needed) */
-  max-width: 300px; /* Max width to ensure the image isn't too large */
-  height: auto; /* Maintain aspect ratio */
-  border-radius: 10px; /* Slightly rounded corners */
-}
-
-/* About Text */
-.about-text h2 {
-  font-size: 28px;
-  font-weight: 600;
-  margin-bottom: 20px;
-}
-
-.about-text p {
+/* Bio Text */
+.bio p {
   font-size: 18px;
   color: #555;
-  line-height: 1.6;
+  line-height: 1.5;
+  max-width: 800px; /* Limit text width for readability */
+  margin: 0 auto; /* Center the text */
 }

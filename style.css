@@ -13,17 +13,18 @@ html {
 header {
   width: 100%;
   display: flex;
-  justify-content: space-between; /* Brand on left, navbar on right */
+  justify-content: space-between; /* Brand name on the left, navbar on the right */
   align-items: center;
-  padding: 20px 30px; /* Adjust padding to prevent overflow */
+  padding: 20px 30px;
   position: fixed;
   top: 0;
+  left: 0;
   background-color: white;
   z-index: 1000;
   box-shadow: none; /* No line under header */
 }
 
-/* Brand Name Styling */
+/* Brand Name on the Left */
 .brand-name {
   font-size: 24px;
   font-weight: 600;
@@ -38,21 +39,26 @@ header {
   color: gray;
 }
 
-/* Navbar and Flexbox Configuration */
+/* Navigation Links + Social Icons */
 .navbar {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  width: 100%; /* Ensure the navbar spans the full available width */
-  flex-wrap: nowrap; /* Prevent elements from wrapping */
+  justify-content: space-between; /* Align nav links and social icons properly */
+  flex-wrap: nowrap; /* Prevents wrapping */
+  gap: 20px;
 }
 
+/* Navigation Links */
 .nav-links {
   list-style-type: none;
+  margin: 0;
+  padding: 0;
   display: flex;
   gap: 20px;
-  flex-grow: 1; /* Allow nav-links to take up available space */
-  min-width: 0; /* Prevent overflow by allowing them to shrink */
+}
+
+.nav-links li {
+  display: inline-block;
 }
 
 .nav-links li a {
@@ -60,17 +66,17 @@ header {
   color: black;
   font-weight: 600;
   font-size: 16px;
+  transition: color 0.3s ease;
 }
 
 .nav-links li a:hover {
   color: gray;
 }
 
-/* Social Icons Styling */
+/* Social Icons */
 .social-icons {
   display: flex;
-  gap: 10px; /* Adjust gap between icons */
-  flex-shrink: 0; /* Prevent icons from shrinking */
+  gap: 15px;
 }
 
 .social-icons img {
@@ -81,33 +87,4 @@ header {
 
 .social-icons img:hover {
   opacity: 0.7;
-}
-
-/* Main Content */
-.main-content {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 150px 50px;
-}
-
-.profile-pic img {
-  border-radius: 50%;
-  width: 120px;
-  height: 120px;
-  object-fit: cover;
-  margin-right: 30px;
-}
-
-.bio h1 {
-  font-size: 36px;
-  font-weight: 600;
-  color: black;
-  margin: 0;
-}
-
-.bio p {
-  font-size: 18px;
-  color: #555; /* Soft gray for bio text */
-  line-height: 1.5;
 }

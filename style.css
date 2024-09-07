@@ -108,3 +108,21 @@ html {
   color: gray; /* Optional: Change color on hover */
   text-decoration: underline; /* Optional: Add underline on hover */
 }
+
+/* Footer message style */
+.footer-message {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  font-size: 12px;
+  color: #555; /* Same gray as other text */
+}
+
+.footer-message a {
+  text-decoration: none;
+  color: #555; /* Match the color to other text */
+}
+
+.footer-message a:hover {
+  color: gray; /* Optional: slightly darker on hover */
+}

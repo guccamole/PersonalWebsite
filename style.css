@@ -30,8 +30,14 @@ html {
   color: gray;
 }
 
-/* Navigation Links */
-.navbar ul {
+/* Nav Links and Social Icons in one flexbox */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-links ul {
   list-style-type: none;
   display: flex;
   gap: 20px;
@@ -39,14 +45,14 @@ html {
   padding: 0;
 }
 
-.navbar ul li a {
+.nav-links ul li a {
   text-decoration: none;
   color: black;
   font-weight: 600;
   font-size: 16px;
 }
 
-.navbar ul li a:hover {
+.nav-links ul li a:hover {
   color: gray;
 }
 
